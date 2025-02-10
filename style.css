@@ -1,0 +1,24 @@
+body {
+    background: black;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    padding: 50px;
+}
+
+.container {
+    opacity: 0;
+}
+
+button {
+    background: none;
+    border: 1px solid #0f0;
+    color: #0f0;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0f0;
+    color: black;
+}
