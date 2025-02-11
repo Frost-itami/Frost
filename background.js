@@ -1,34 +1,33 @@
-const canvas = document.createElement("canvas");
-document.body.appendChild(canvas);
-const ctx = canvas.getContext("2d");
+const background = document.querySelector('.matrix-background');
+const chars = "01";
+const columns = Math.floor(window.innerWidth / 20);
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function createMatrix() {
+    for (let i = 0; i < columns; i++) {
+        const span = document.createElement('span');
+        span.style.left = `${i * 20}px`;
+        span.style.animationDelay = `${Math.random() * 5}s`;
+        span.style.animationDuration = `${5 + Math.random() * 10}s`;
+        background.appendChild(span);
+    }
+}
 
-let points = [];
-for (let i = 0; i < 50; i++) {
-    points.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 2,
-        vy: (Math.random() - 0.5) * 2
+function updateMatrix() {
+    const spans = document.querySelectorAll('.matrix-background span');
+    spans.forEach(span => {
+        let text = '';
+        const length = Math.floor(Math.random() * 10) + 5;
+        for (let i = 0; i < length; i++) {
+            text += chars[Math.floor(Math.random() * chars.length)];
+        }
+        span.textContent = text;
     });
 }
 
-function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#00ff00";
+createMatrix();
+setInterval(updateMatrix, 100);
 
-    for (let point of points) {
-        ctx.fillRect(point.x, point.y, 3, 3);
-        point.x += point.vx;
-        point.y += point.vy;
-
-        if (point.x < 0 || point.x > canvas.width) point.vx *= -1;
-        if (point.y < 0 || point.y > canvas.height) point.vy *= -1;
-    }
-
-    requestAnimationFrame(draw);
-}
-
-draw();
+window.addEventListener('resize', () => {
+    background.innerHTML = '';
+    createMatrix();
+});

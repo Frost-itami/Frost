@@ -1,11 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 body {
-    background: black;
-    color: #00ff00;
-    font-family: 'Share Tech Mono', monospace;
     margin: 0;
     overflow: hidden;
+    font-family: 'Share Tech Mono', monospace;
+    color: #00ff00;
+}
+
+.matrix-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
 
 .container {
@@ -17,6 +26,7 @@ body {
     box-shadow: 0 0 15px #00ff00;
     background: rgba(0, 0, 0, 0.8);
     position: relative;
+    z-index: 1;
 }
 
 .glitch {
@@ -60,6 +70,14 @@ body {
     to { width: 100%; }
 }
 
+.music-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
 button {
     padding: 10px 20px;
     border: none;
@@ -67,7 +85,6 @@ button {
     color: black;
     cursor: pointer;
     font-size: 1em;
-    margin: 10px;
     transition: 0.3s;
 }
 
@@ -77,6 +94,11 @@ button:hover {
     box-shadow: 0 0 10px #00ff00;
 }
 
+#volume-control {
+    width: 100px;
+    cursor: pointer;
+}
+
 #terminal-input {
     width: 80%;
     padding: 10px;
@@ -84,13 +106,15 @@ button:hover {
     color: #00ff00;
     border: 1px solid #00ff00;
     outline: none;
+    margin-top: 20px;
 }
 
-#visualizer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+#terminal-output {
     height: 200px;
-    pointer-events: none;
+    overflow-y: auto;
+    text-align: left;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #00ff00;
+    background: rgba(0, 0, 0, 0.5);
 }

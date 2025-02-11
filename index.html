@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Itami's Cyber World</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="background"></div>
+    <div class="matrix-background"></div>
     <div class="container">
         <h1 class="glitch">Yo, I'm Itami...</h1>
         <p class="terminal-text">Welcome to my cyber world. Dev, Gamer, Hustler.</p>
@@ -21,16 +22,16 @@
         </div>
 
         <h2>Recent Projects</h2>
-        <button id="music-btn"><i class="fa fa-music"></i> Play Music</button>
-        <button id="toggle-matrix">Toggle Matrix</button>
+        <div class="music-controls">
+            <button id="music-btn"><i class="fas fa-play"></i> Play</button>
+            <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
+        </div>
 
         <div class="terminal">
             <input type="text" id="terminal-input" placeholder="Type a command...">
             <div id="terminal-output"></div>
         </div>
     </div>
-
-    <canvas id="visualizer"></canvas>
 
     <script src="script.js"></script>
     <script src="background.js"></script>

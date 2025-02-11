@@ -1,16 +1,30 @@
-document.getElementById("music-btn").addEventListener("click", () => {
-    let audio = new Audio("music.mp3");
-    audio.play();
+// Music Player
+const audio = new Audio("music.mp3");
+const musicBtn = document.getElementById("music-btn");
+const volumeControl = document.getElementById("volume-control");
+
+let isPlaying = false;
+
+musicBtn.addEventListener("click", () => {
+    if (isPlaying) {
+        audio.pause();
+        musicBtn.innerHTML = '<i class="fas fa-play"></i> Play';
+    } else {
+        audio.play();
+        musicBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+    }
+    isPlaying = !isPlaying;
 });
 
-document.getElementById("toggle-matrix").addEventListener("click", () => {
-    document.body.classList.toggle("matrix-mode");
+volumeControl.addEventListener("input", () => {
+    audio.volume = volumeControl.value;
 });
 
+// Terminal
 document.getElementById("terminal-input").addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
-        let input = event.target.value.toLowerCase();
-        let output = document.getElementById("terminal-output");
+        const input = event.target.value.toLowerCase();
+        const output = document.getElementById("terminal-output");
         let response = "";
 
         switch (input) {
@@ -28,24 +42,7 @@ document.getElementById("terminal-input").addEventListener("keypress", (event) =
         }
 
         output.innerHTML += `<p>> ${input}</p><p>${response}</p>`;
+        output.scrollTop = output.scrollHeight;
         event.target.value = "";
     }
 });
-
-// Music Visualizer
-let canvas = document.getElementById("visualizer");
-let ctx = canvas.getContext("2d");
-
-function drawVisualizer() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#00ff00";
-    
-    for (let i = 0; i < 100; i++) {
-        let height = Math.random() * 100;
-        ctx.fillRect(i * 10, canvas.height - height, 5, height);
-    }
-
-    requestAnimationFrame(drawVisualizer);
-}
-
-drawVisualizer();
