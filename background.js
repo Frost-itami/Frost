@@ -1,33 +1,34 @@
-const canvas = document.getElementById("visualizer");
+const canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
 const ctx = canvas.getContext("2d");
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let audio = document.getElementById("bg-music");
-let analyser, dataArray;
-
-function setupVisualizer() {
-    let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    analyser = audioCtx.createAnalyser();
-    let source = audioCtx.createMediaElementSource(audio);
-    source.connect(analyser);
-    analyser.connect(audioCtx.destination);
-    analyser.fftSize = 256;
-    dataArray = new Uint8Array(analyser.frequencyBinCount);
+let points = [];
+for (let i = 0; i < 50; i++) {
+    points.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 2,
+        vy: (Math.random() - 0.5) * 2
+    });
 }
 
 function draw() {
-    requestAnimationFrame(draw);
-    analyser.getByteFrequencyData(dataArray);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < dataArray.length; i++) {
-        let barHeight = dataArray[i] / 2;
-        ctx.fillStyle = `rgb(${barHeight}, 255, ${barHeight})`;
-        ctx.fillRect(i * 10, canvas.height - barHeight, 5, barHeight);
+    ctx.fillStyle = "#00ff00";
+
+    for (let point of points) {
+        ctx.fillRect(point.x, point.y, 3, 3);
+        point.x += point.vx;
+        point.y += point.vy;
+
+        if (point.x < 0 || point.x > canvas.width) point.vx *= -1;
+        if (point.y < 0 || point.y > canvas.height) point.vy *= -1;
     }
+
+    requestAnimationFrame(draw);
 }
 
-audio.addEventListener("play", () => {
-    setupVisualizer();
-    draw();
-});
+draw();

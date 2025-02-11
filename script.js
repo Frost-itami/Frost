@@ -1,33 +1,51 @@
-document.addEventListener("mousemove", function (e) {
-    let cursor = document.getElementById("cursor");
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
+document.getElementById("music-btn").addEventListener("click", () => {
+    let audio = new Audio("music.mp3");
+    audio.play();
 });
 
-let input = document.getElementById("terminal-input");
-let output = document.getElementById("output");
+document.getElementById("toggle-matrix").addEventListener("click", () => {
+    document.body.classList.toggle("matrix-mode");
+});
 
-input.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-        let cmd = input.value.toLowerCase();
-        input.value = "";
+document.getElementById("terminal-input").addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        let input = event.target.value.toLowerCase();
+        let output = document.getElementById("terminal-output");
+        let response = "";
 
-        let response = {
-            "whoami": "Itami, the cyber ghost.",
-            "ls": "Access denied. You're not worthy.",
-            "help": "No one can help you now...",
-        };
+        switch (input) {
+            case "whoami":
+                response = "You are Itami, the cyber overlord.";
+                break;
+            case "ls":
+                response = "Projects: Cyber Fortress, Neon Hacker, Matrix Sim.";
+                break;
+            case "help":
+                response = "Commands: whoami, ls, help.";
+                break;
+            default:
+                response = "Unknown command.";
+        }
 
-        output.innerHTML += `<p>> ${cmd}</p>`;
-        output.innerHTML += `<p>${response[cmd] || "Unknown command."}</p>`;
+        output.innerHTML += `<p>> ${input}</p><p>${response}</p>`;
+        event.target.value = "";
     }
 });
 
-document.getElementById("music-btn").addEventListener("click", function () {
-    let music = document.getElementById("bg-music");
-    if (music.paused) {
-        music.play();
-    } else {
-        music.pause();
+// Music Visualizer
+let canvas = document.getElementById("visualizer");
+let ctx = canvas.getContext("2d");
+
+function drawVisualizer() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#00ff00";
+    
+    for (let i = 0; i < 100; i++) {
+        let height = Math.random() * 100;
+        ctx.fillRect(i * 10, canvas.height - height, 5, height);
     }
-});
+
+    requestAnimationFrame(drawVisualizer);
+}
+
+drawVisualizer();

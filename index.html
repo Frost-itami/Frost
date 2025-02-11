@@ -3,44 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Itami's Cyber Lair</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Itami's Cyber World</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="background"></div>
+    <div class="container">
+        <h1 class="glitch">Yo, I'm Itami...</h1>
+        <p class="terminal-text">Welcome to my cyber world. Dev, Gamer, Hustler.</p>
+        
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill-bar"><span>Hacking</span><div class="fill"></div></div>
+            <div class="skill-bar"><span>Game Dev</span><div class="fill"></div></div>
+            <div class="skill-bar"><span>Networking</span><div class="fill"></div></div>
+            <div class="skill-bar"><span>Cyber Security</span><div class="fill"></div></div>
+        </div>
 
-<div class="crt-overlay"></div> <!-- CRT Scanlines Effect -->
-<div id="cursor"></div> <!-- Custom Cursor -->
+        <h2>Recent Projects</h2>
+        <button id="music-btn"><i class="fa fa-music"></i> Play Music</button>
+        <button id="toggle-matrix">Toggle Matrix</button>
 
-<!-- Terminal Effect -->
-<div id="terminal">
-    <span class="command">Welcome to Itami's Terminal...</span>
-    <input type="text" id="terminal-input" placeholder="Type a command...">
-    <div id="output"></div>
-</div>
-
-<!-- Main Content -->
-<div class="container">
-    <h1 class="glitch-text">Yo, I'm Itami...</h1>
-    <p class="glitch-text">Welcome to my cyber world. Dev, Gamer, Hustler.</p>
-
-    <h2>Skills</h2>
-    <div class="skills">
-        <div class="skill-bar">Loading...</div>
-        <div class="skill-bar">Loading...</div>
-        <div class="skill-bar">Loading...</div>
-        <div class="skill-bar">Loading...</div>
+        <div class="terminal">
+            <input type="text" id="terminal-input" placeholder="Type a command...">
+            <div id="terminal-output"></div>
+        </div>
     </div>
 
-    <h2>Recent Projects</h2>
-    <button id="music-btn"><i class="fas fa-music"></i></button>
-    <button id="matrix-btn">Toggle Matrix</button>
+    <canvas id="visualizer"></canvas>
 
-    <canvas id="visualizer"></canvas> <!-- Music Visualizer -->
-</div>
-
-<audio id="bg-music" src="music.mp3"></audio>
-<script src="script.js"></script>
-<script src="background.js"></script>
-
+    <script src="script.js"></script>
+    <script src="bg.js"></script>
 </body>
 </html>
