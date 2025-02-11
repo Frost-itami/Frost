@@ -1,38 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Itami's Cyber World</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
-    <!-- GSAP & CSSPlugin -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-
     <canvas id="matrixCanvas"></canvas>
-    
+    <div id="custom-cursor"></div>
+
     <div class="container">
         <div class="terminal">
             <h1 id="intro"></h1>
-            <div class="content">
-                <p class="typewriter">Welcome to my cyber world. Dev, Gamer, Hustler.</p>
-                <div class="skills">
-                    <h2>Skills</h2>
-                    <div class="skill-bars">
-                        <div class="skill" data-skill="JavaScript">Loading...</div>
-                        <div class="skill" data-skill="React">Loading...</div>
-                        <div class="skill" data-skill="Node.js">Loading...</div>
-                        <div class="skill" data-skill="Gaming">Loading...</div>
-                    </div>
+            <p class="typewriter">Welcome to my cyber world. Dev, Gamer, Hustler.</p>
+            <div class="skills">
+                <h2>Skills</h2>
+                <div class="skill-bars">
+                    <div class="skill" data-skill="JavaScript">Loading...</div>
+                    <div class="skill" data-skill="React">Loading...</div>
+                    <div class="skill" data-skill="Node.js">Loading...</div>
+                    <div class="skill" data-skill="Gaming">Loading...</div>
                 </div>
-                <div class="projects">
-                    <h2>Recent Projects</h2>
-                    <div class="project-grid"></div>
-                </div>
+            </div>
+            <div class="projects">
+                <h2>Recent Projects</h2>
+                <div class="project-grid"></div>
             </div>
             <div class="controls">
                 <button id="musicBtn">Play Music</button>
@@ -44,5 +40,7 @@
     <audio id="bgMusic" loop>
         <source src="music.mp3" type="audio/mp3">
     </audio>
+
+    <script src="background.js"></script> <!-- 3D Background -->
 </body>
 </html>
