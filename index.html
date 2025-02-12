@@ -3,42 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyberpunk Playground</title>
+    <title>3D Interactive Desk</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- GSAP for animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r146/three.min.js"></script>
+    <!-- GLTFLoader for 3D models -->
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
-    <!-- Holographic Background -->
-    <div class="holographic-bg">
-        <div class="light-grid"></div>
-        <div class="neon-lines"></div>
-        <div class="particles"></div>
-    </div>
+    <!-- 3D Scene Container -->
+    <div id="scene-container"></div>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Glitch Header -->
-        <h1 class="glitch" data-text="Welcome to the Cyberpunk Playground">Welcome to the Cyberpunk Playground</h1>
-        <p class="terminal-text">Type commands in the terminal below. Start with "help".</p>
-
-        <!-- Music Controls -->
-        <div class="music-controls">
-            <button id="music-btn"><i class="fas fa-play"></i> Play</button>
-            <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
-            <div id="visualizer"></div>
-        </div>
-
-        <!-- Interactive Terminal -->
-        <div class="terminal">
-            <div id="terminal-output"></div>
-            <input type="text" id="terminal-input" placeholder="Type a command...">
-        </div>
+    <!-- Overlay for UI -->
+    <div id="overlay">
+        <p id="info-text">Click on objects to interact!</p>
     </div>
 
     <!-- Scripts -->
-    <script src="background.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

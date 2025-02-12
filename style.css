@@ -1,202 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
 /* Global Styles */
 body {
     margin: 0;
     overflow: hidden;
-    font-family: 'Share Tech Mono', monospace;
-    color: #ff00ff; /* Neon Pink */
+    font-family: 'Arial', sans-serif;
+    color: #fff;
     background: #000;
 }
 
-/* Holographic Background */
-.holographic-bg {
+#scene-container {
+    width: 100%;
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: radial-gradient(circle, #1a1a1a, #000);
-    overflow: hidden;
-}
-
-.light-grid {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(transparent 95%, rgba(255, 105, 180, 0.1) 95%),
-                linear-gradient(90deg, transparent 95%, rgba(255, 105, 180, 0.1) 95%);
-    background-size: 50px 50px;
-    animation: gridMove 10s linear infinite;
-}
-
-@keyframes gridMove {
-    from { background-position: 0 0; }
-    to { background-position: 50px 50px; }
-}
-
-.neon-lines {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
-    opacity: 0.1;
-    mask: linear-gradient(transparent 50%, black 50%);
-    animation: neonFlow 10s linear infinite;
-}
-
-@keyframes neonFlow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, transparent 20%, #000 20%);
-    background-size: 20px 20px;
-    animation: particleMove 5s linear infinite;
-}
-
-@keyframes particleMove {
-    from { background-position: 0 0; }
-    to { background-position: 20px 20px; }
-}
-
-/* Container */
-.container {
-    width: 80%;
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 20px;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.8);
-    border: 2px solid #00ffff; /* Neon Cyan */
-    box-shadow: 0 0 20px #00ffff;
-    position: relative;
     z-index: 1;
 }
 
-/* Glitch Effect */
-.glitch {
-    font-size: 3em;
-    position: relative;
-    animation: glitch 2.5s infinite;
+#overlay {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.glitch::before, .glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.8;
-}
-
-.glitch::before {
-    color: #00ffff; /* Neon Cyan */
-    animation: glitch-anim 1s infinite;
-}
-
-.glitch::after {
-    color: #ff1493; /* Deep Pink */
-    animation: glitch-anim 2s infinite;
-}
-
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
-}
-
-/* Terminal */
-.terminal {
-    background: rgba(0, 0, 0, 0.9);
-    border: 1px solid #00ffff;
-    padding: 15px;
-    margin-top: 30px;
-    text-align: left;
-    height: 300px;
-    overflow-y: auto;
-}
-
-#terminal-output {
-    color: #ff00ff; /* Neon Pink */
-    font-family: 'Share Tech Mono', monospace;
-}
-
-#terminal-input {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: #ff00ff;
-    outline: none;
-    font-family: 'Share Tech Mono', monospace;
-    margin-top: 10px;
-}
-
-#terminal-input::placeholder {
-    color: rgba(255, 105, 180, 0.5); /* Hot Pink with opacity */
-}
-
-/* Music Controls */
-.music-controls {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-}
-
-button {
-    padding: 10px 20px;
-    border: none;
-    background: #00ff00;
-    color: black;
-    cursor: pointer;
-    font-size: 1em;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #000;
-    color: #00ffff;
-    box-shadow: 0 0 10px #00ffff;
-}
-
-#visualizer {
-    width: 100px;
-    height: 20px;
-    background: rgba(0, 255, 0, 0.1);
-    border: 1px solid #00ffff;
-    position: relative;
-    overflow: hidden;
-}
-
-#visualizer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    background: #00ffff;
-    animation: visualizer 1s infinite alternate;
-}
-
-@keyframes visualizer {
-    from { width: 0%; }
-    to { width: 100%; }
+#info-text {
+    margin: 0;
+    font-size: 1.2em;
 }
