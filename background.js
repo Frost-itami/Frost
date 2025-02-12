@@ -1,33 +1,46 @@
-const background = document.querySelector('.matrix-background');
-const chars = "01";
-const columns = Math.floor(window.innerWidth / 20);
+// Three.js 3D Background
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById("3d-background").appendChild(renderer.domElement);
 
-function createMatrix() {
-    for (let i = 0; i < columns; i++) {
-        const span = document.createElement('span');
-        span.style.left = `${i * 20}px`;
-        span.style.animationDelay = `${Math.random() * 5}s`;
-        span.style.animationDuration = `${5 + Math.random() * 10}s`;
-        background.appendChild(span);
-    }
+// Add glowing particles
+const particlesGeometry = new THREE.BufferGeometry();
+const particlesCount = 5000;
+const posArray = new Float32Array(particlesCount * 3);
+
+for (let i = 0; i < particlesCount * 3; i++) {
+    posArray[i] = (Math.random() - 0.5) * 50;
 }
 
-function updateMatrix() {
-    const spans = document.querySelectorAll('.matrix-background span');
-    spans.forEach(span => {
-        let text = '';
-        const length = Math.floor(Math.random() * 10) + 5;
-        for (let i = 0; i < length; i++) {
-            text += chars[Math.floor(Math.random() * chars.length)];
-        }
-        span.textContent = text;
-    });
+particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+const particlesMaterial = new THREE.PointsMaterial({
+    size: 0.1,
+    color: 0x00ff00,
+    transparent: true,
+    opacity: 0.8
+});
+
+const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+scene.add(particlesMesh);
+
+camera.position.z = 5;
+
+// Animation Loop
+function animate() {
+    requestAnimationFrame(animate);
+    particlesMesh.rotation.x += 0.001;
+    particlesMesh.rotation.y += 0.001;
+    renderer.render(scene, camera);
 }
 
-createMatrix();
-setInterval(updateMatrix, 100);
+animate();
 
+// Resize Handler
 window.addEventListener('resize', () => {
-    background.innerHTML = '';
-    createMatrix();
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
 });
