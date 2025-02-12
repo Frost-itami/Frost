@@ -1,88 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    cursor: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 body {
-    font-family: 'Orbitron', sans-serif;
+    background: #0a0a0a;
     color: white;
-    background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #262626, #0d0d0d);
-    background-size: 400% 400%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
 }
 
-/* Cursor Glow Effect */
 .cursor {
-    width: 20px;
-    height: 20px;
-    background: rgba(0, 255, 255, 0.8);
-    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: cyan;
     position: absolute;
-    pointer-events: none;
-    transform: translate(-50%, -50%); /* Fixes alignment */
-    transition: transform 0.1s linear;
-    box-shadow: 0 0 10px cyan, 0 0 20px cyan;
-}
-
-
-/* Profile Section */
-.container {
-    text-align: center;
-    z-index: 10;
-}
-
-.profile img {
-    width: 120px;
-    height: 120px;
     border-radius: 50%;
-    border: 3px solid cyan;
-    box-shadow: 0 0 15px cyan;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.1s ease;
 }
 
-.profile img:hover {
-    transform: scale(1.1);
+.container {
+    position: relative;
+    padding-top: 50px;
+}
+
+.logo {
+    width: 80px;
+    filter: drop-shadow(0 0 10px cyan);
 }
 
 h1 {
-    font-size: 2rem;
-    margin: 10px 0;
+    font-size: 40px;
+    text-shadow: 0 0 10px cyan;
 }
 
-p {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    color: #cfcfcf;
-}
-
-/* Social Buttons */
 .socials {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
+    margin: 20px 0;
 }
 
-.social-btn {
-    text-decoration: none;
-    font-size: 1rem;
-    color: white;
+.btn {
+    display: inline-block;
     padding: 10px 20px;
+    margin: 10px;
+    color: cyan;
     border: 2px solid cyan;
-    border-radius: 5px;
+    text-decoration: none;
     transition: 0.3s;
 }
 
-.social-btn:hover {
+.btn:hover {
     background: cyan;
     color: black;
+}
+
+.glowing-circle {
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 280px;
+    box-shadow: 0 0 30px cyan;
+}
+
+.clips-section {
+    margin-top: 250px;
+}
+
+.clips-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.clips-container iframe {
+    width: 320px;
+    height: 180px;
+    border-radius: 10px;
     box-shadow: 0 0 10px cyan;
+}
+
+.music-player {
+    margin-top: 50px;
+}
+
+audio {
+    width: 80%;
+    max-width: 400px;
 }
