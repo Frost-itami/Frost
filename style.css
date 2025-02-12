@@ -168,3 +168,120 @@ button:hover {
     width: 100px;
     cursor: pointer;
 }
+/* Holographic Background */
+.holographic-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle, #1a1a1a, #000);
+    overflow: hidden;
+}
+
+/* Light Grid */
+.light-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 95%, rgba(255, 105, 180, 0.1) 95%),
+                linear-gradient(90deg, transparent 95%, rgba(255, 105, 180, 0.1) 95%);
+    background-size: 50px 50px;
+    animation: gridMove 10s linear infinite;
+}
+
+@keyframes gridMove {
+    from { background-position: 0 0; }
+    to { background-position: 50px 50px; }
+}
+
+/* Neon Lines */
+.neon-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
+    opacity: 0.1;
+    mask: linear-gradient(transparent 50%, black 50%);
+    animation: neonFlow 10s linear infinite;
+}
+
+@keyframes neonFlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Particles */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 20%, #000 20%);
+    background-size: 20px 20px;
+    animation: particleMove 5s linear infinite;
+}
+
+@keyframes particleMove {
+    from { background-position: 0 0; }
+    to { background-position: 20px 20px; }
+}
+
+/* Updated Color Scheme */
+body {
+    color: #ff00ff; /* Neon Pink */
+}
+
+.container {
+    border-color: #00ffff; /* Neon Cyan */
+    box-shadow: 0 0 20px #00ffff;
+}
+
+.glitch {
+    color: #ff00ff;
+}
+
+.glitch::before {
+    color: #00ffff;
+}
+
+.glitch::after {
+    color: #ff1493; /* Deep Pink */
+}
+
+.skill-card {
+    border-color: #00ffff;
+}
+
+.skill-bar .fill {
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+}
+
+button {
+    background: #ff00ff;
+    color: #000;
+}
+
+button:hover {
+    background: #000;
+    color: #00ffff;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.terminal {
+    border-color: #00ffff;
+}
+
+#terminal-input {
+    color: #ff00ff;
+}
+
+#terminal-input::placeholder {
+    color: rgba(255, 105, 180, 0.5); /* Hot Pink with opacity */
+}

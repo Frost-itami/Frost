@@ -19,7 +19,14 @@ musicBtn.addEventListener("click", () => {
 volumeControl.addEventListener("input", () => {
     audio.volume = volumeControl.value;
 });
+// Interactive Particles
+const particles = document.querySelector('.particles');
 
+document.addEventListener('mousemove', (e) => {
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+    particles.style.backgroundPosition = `${x * 20}px ${y * 20}px`;
+});
 // Terminal
 document.getElementById("terminal-input").addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
