@@ -1,50 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 body {
     background: #0a0a0a;
-    color: white;
+    color: cyan;
     font-family: 'Orbitron', sans-serif;
     text-align: center;
-    margin: 0;
-    padding: 0;
     overflow: hidden;
 }
 
+/* Cursor */
 .cursor {
     width: 10px;
     height: 10px;
-    background-color: cyan;
     position: absolute;
+    background: cyan;
     border-radius: 50%;
-    transition: transform 0.1s ease;
+    box-shadow: 0 0 10px cyan;
+    transition: transform 0.05s linear;
 }
 
-.container {
-    position: relative;
-    padding-top: 50px;
-}
-
+/* About Section */
 .logo {
-    width: 80px;
-    filter: drop-shadow(0 0 10px cyan);
+    width: 100px;
+    animation: glow 2s infinite alternate;
 }
 
 h1 {
-    font-size: 40px;
-    text-shadow: 0 0 10px cyan;
+    font-size: 3rem;
 }
 
-.socials {
-    margin: 20px 0;
+p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
 }
 
 .btn {
-    display: inline-block;
+    border: 2px solid cyan;
     padding: 10px 20px;
     margin: 10px;
-    color: cyan;
-    border: 2px solid cyan;
     text-decoration: none;
+    color: cyan;
     transition: 0.3s;
 }
 
@@ -53,40 +48,24 @@ h1 {
     color: black;
 }
 
-.glowing-circle {
-    width: 200px;
-    height: 200px;
-    background: rgba(0, 255, 255, 0.2);
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 280px;
-    box-shadow: 0 0 30px cyan;
+/* Clips Section */
+#clips {
+    margin-top: 50px;
 }
 
-.clips-section {
-    margin-top: 250px;
-}
-
-.clips-container {
+.clip-container {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-.clips-container iframe {
-    width: 320px;
-    height: 180px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px cyan;
+.clip video {
+    width: 300px;
+    border: 2px solid cyan;
+    box-shadow: 0 0 20px cyan;
 }
 
-.music-player {
-    margin-top: 50px;
-}
-
-audio {
-    width: 80%;
-    max-width: 400px;
+@keyframes glow {
+    from { text-shadow: 0 0 5px cyan; }
+    to { text-shadow: 0 0 20px cyan; }
 }
