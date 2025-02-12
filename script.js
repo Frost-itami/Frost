@@ -1,24 +1,62 @@
-// Music Player
-const audio = new Audio("music.mp3");
-const musicBtn = document.getElementById("music-btn");
-const volumeControl = document.getElementById("volume-control");
+// Terminal Commands
+const terminalInput = document.getElementById('terminal-input');
+const terminalOutput = document.getElementById('terminal-output');
 
-let isPlaying = false;
-
-musicBtn.addEventListener("click", () => {
-    if (isPlaying) {
-        audio.pause();
-        musicBtn.innerHTML = '<i class="fas fa-play"></i> Play';
-    } else {
-        audio.play();
-        musicBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+const commands = {
+    help: `Available commands:
+    - help: Show this message
+    - dance: Make the text dance
+    - matrix: Enter the Matrix
+    - hack: Pretend to hack the system
+    - joke: Get a random joke
+    - clear: Clear the terminal`,
+    dance: () => {
+        gsap.to('.glitch', { duration: 1, y: 20, repeat: -1, yoyo: true });
+        return "The text is now dancing!";
+    },
+    matrix: () => {
+        document.body.classList.add('matrix-mode');
+        return "Welcome to the Matrix...";
+    },
+    hack: () => {
+        let fakeCode = '';
+        for (let i = 0; i < 10; i++) {
+            fakeCode += `[HACKING...] ${Math.random().toString(36).substring(2, 15)}\n`;
+        }
+        return fakeCode + "Hack complete! (Just kidding 😉)";
+    },
+    joke: () => {
+        const jokes = [
+            "Why do programmers prefer dark mode? Because light attracts bugs!",
+            "Why don't programmers like nature? It has too many bugs.",
+            "How many programmers does it take to change a light bulb? None, that's a hardware problem!",
+            "Why do Java developers wear glasses? Because they can't C#!"
+        ];
+        return jokes[Math.floor(Math.random() * jokes.length)];
+    },
+    clear: () => {
+        terminalOutput.innerHTML = '';
+        return "Terminal cleared.";
     }
-    isPlaying = !isPlaying;
+};
+
+terminalInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const input = terminalInput.value.trim().toLowerCase();
+        let output = '';
+
+        if (commands[input]) {
+            output = typeof commands[input] === 'function' ? commands[input]() : commands[input];
+        } else {
+            output = `Unknown command: ${input}`;
+        }
+
+        terminalOutput.innerHTML += `<p>> ${input}</p><p>${output}</p>`;
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        terminalInput.value = '';
+    }
 });
 
-volumeControl.addEventListener("input", () => {
-    audio.volume = volumeControl.value;
-});
 // Interactive Particles
 const particles = document.querySelector('.particles');
 
@@ -26,30 +64,4 @@ document.addEventListener('mousemove', (e) => {
     const x = e.clientX / window.innerWidth;
     const y = e.clientY / window.innerHeight;
     particles.style.backgroundPosition = `${x * 20}px ${y * 20}px`;
-});
-// Terminal
-document.getElementById("terminal-input").addEventListener("keypress", (event) => {
-    if (event.key === "Enter") {
-        const input = event.target.value.toLowerCase();
-        const output = document.getElementById("terminal-output");
-        let response = "";
-
-        switch (input) {
-            case "whoami":
-                response = "You are Itami, the cyber overlord.";
-                break;
-            case "ls":
-                response = "Projects: Cyber Fortress, Neon Hacker, Matrix Sim.";
-                break;
-            case "help":
-                response = "Commands: whoami, ls, help.";
-                break;
-            default:
-                response = "Unknown command.";
-        }
-
-        output.innerHTML += `<p>> ${input}</p><p>${response}</p>`;
-        output.scrollTop = output.scrollHeight;
-        event.target.value = "";
-    }
 });
