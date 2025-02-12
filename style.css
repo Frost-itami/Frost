@@ -26,11 +26,12 @@ body {
     background: rgba(0, 255, 255, 0.8);
     border-radius: 50%;
     position: absolute;
-    transform: translate(-50%, -50%);
     pointer-events: none;
-    transition: transform 0.1s ease-out;
+    transform: translate(-50%, -50%); /* Fixes alignment */
+    transition: transform 0.1s linear;
     box-shadow: 0 0 10px cyan, 0 0 20px cyan;
 }
+
 
 /* Profile Section */
 .container {
