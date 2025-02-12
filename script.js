@@ -15,8 +15,8 @@ const commands = {
         return "The text is now dancing!";
     },
     matrix: () => {
-        document.body.classList.add('matrix-mode');
-        return "Welcome to the Matrix...";
+        activateMatrixMode(); // Call the function from background.js
+        return "Welcome to the Matrix... (Press ESC to exit)";
     },
     hack: () => {
         let fakeCode = '';
@@ -55,13 +55,4 @@ terminalInput.addEventListener('keypress', (e) => {
         terminalOutput.scrollTop = terminalOutput.scrollHeight;
         terminalInput.value = '';
     }
-});
-
-// Interactive Particles
-const particles = document.querySelector('.particles');
-
-document.addEventListener('mousemove', (e) => {
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    particles.style.backgroundPosition = `${x * 20}px ${y * 20}px`;
 });
