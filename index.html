@@ -23,6 +23,13 @@
         <h1 class="glitch" data-text="Welcome to the Cyberpunk Playground">Welcome to the Cyberpunk Playground</h1>
         <p class="terminal-text">Type commands in the terminal below. Start with "help".</p>
 
+        <!-- Music Controls -->
+        <div class="music-controls">
+            <button id="music-btn"><i class="fas fa-play"></i> Play</button>
+            <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
+            <div id="visualizer"></div>
+        </div>
+
         <!-- Interactive Terminal -->
         <div class="terminal">
             <div id="terminal-output"></div>

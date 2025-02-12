@@ -1,3 +1,28 @@
+// Music Player
+const audio = new Audio("music.mp3"); // Add your music file
+const musicBtn = document.getElementById('music-btn');
+const volumeControl = document.getElementById('volume-control');
+const visualizer = document.getElementById('visualizer');
+
+let isPlaying = false;
+
+musicBtn.addEventListener('click', () => {
+    if (isPlaying) {
+        audio.pause();
+        musicBtn.innerHTML = '<i class="fas fa-play"></i> Play';
+        visualizer.style.display = 'none';
+    } else {
+        audio.play();
+        musicBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+        visualizer.style.display = 'block';
+    }
+    isPlaying = !isPlaying;
+});
+
+volumeControl.addEventListener('input', () => {
+    audio.volume = volumeControl.value;
+});
+
 // Terminal Commands
 const terminalInput = document.getElementById('terminal-input');
 const terminalOutput = document.getElementById('terminal-output');
