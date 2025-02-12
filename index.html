@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Interactive Desk</title>
+    <title>About Me - ITAMI</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r146/three.min.js"></script>
-    <!-- GLTFLoader for 3D models -->
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
-    <!-- 3D Scene Container -->
-    <div id="scene-container"></div>
-
-    <!-- Overlay for UI -->
-    <div id="overlay">
-        <p id="info-text">Click on objects to interact!</p>
+    <div class="cursor"></div>
+    
+    <div class="container">
+        <div class="profile">
+            <img src="your-profile-pic.jpg" alt="ITAMI">
+            <h1>ITAMI</h1>
+            <p>Cyberpunk dev, gamer, and creator. Welcome to my world.</p>
+            
+            <div class="socials">
+                <a href="https://twitter.com/yourusername" target="_blank" class="social-btn">Twitter</a>
+                <a href="https://github.com/yourusername" target="_blank" class="social-btn">GitHub</a>
+                <a href="https://discord.gg/yourserver" target="_blank" class="social-btn">Discord</a>
+            </div>
+        </div>
     </div>
 
-    <!-- Scripts -->
+    <script src="background.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
