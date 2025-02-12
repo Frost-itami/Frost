@@ -21,8 +21,11 @@ body {
 
 /* About Section */
 .logo {
-    width: 100px;
-    animation: glow 2s infinite alternate;
+    width: 100px;  /* Adjust size as needed */
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid cyan; /* Optional glowing border */
 }
 
 h1 {
