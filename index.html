@@ -3,35 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frost Itami</title>
+    <title>ITAMI | Cyberpunk Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Rank Display -->
-    <div class="rank-container">
-        <img src="assets/rank.png" alt="Ascendant 2 Rank">
-        <p>Ascendant 2</p>
-    </div>
+    <!-- Cursor -->
+    <div class="cursor"></div>
 
-    <!-- Video Clips -->
-    <div class="clips-container">
-        <video controls>
-            <source src="assets/clip1.mp4" type="video/mp4">
-        </video>
-        <video controls>
-            <source src="assets/clip2.mp4" type="video/mp4">
-        </video>
-    </div>
+    <!-- About Section -->
+    <section id="about">
+        <img src="Miyamoto.png" alt="ITAMI Logo" class="logo">
+        <h1>ITAMI</h1>
+        <p>Cyberpunk dev, gamer, and creator. Welcome to my world.</p>
+        <div class="socials">
+            <a href="https://twitter.com/yourhandle" class="btn">Twitter</a>
+            <a href="https://github.com/yourgithub" class="btn">GitHub</a>
+            <a href="https://discord.gg/yourdiscord" class="btn">Discord</a>
+        </div>
+    </section>
 
-    <!-- Music Player -->
-    <div class="music-player">
-        <button id="prev-song">⏮</button>
-        <button id="play-pause">▶</button>
-        <button id="next-song">⏭</button>
-        <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
-    </div>
+    <!-- Clips Showcase -->
+    <section id="clips">
+        <h2>🔥 Featured Clips</h2>
+        <div class="clip-container">
+            <div class="clip">
+                <video src="clip1.mp4" controls></video>
+            </div>
+            <div class="clip">
+                <video src="clip2.mp4" controls></video>
+            </div>
+            <div class="clip">
+                <video src="clip3.mp4" controls></video>
+            </div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
+    <script src="bg.js"></script>
+
 </body>
 </html>

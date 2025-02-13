@@ -1,60 +1,114 @@
-/* Hide default cursor */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 body {
-    cursor: none;
-    background-color: #0d0d0d;
-    color: white;
-    font-family: Arial, sans-serif;
+    background: #0a0a0a;
+    color: cyan;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    overflow: hidden;
 }
 
-/* Custom Cursor */
-.custom-cursor {
+/* Cursor */
+.cursor {
+    width: 10px;
+    height: 10px;
     position: absolute;
-    width: 50px;
-    height: auto;
-    pointer-events: none;
-    transform: rotate(-45deg);
-    z-index: 9999;
+    background: cyan;
+    border-radius: 50%;
+    box-shadow: 0 0 10px cyan;
+    transition: transform 0.05s linear;
+}
+
+/* About Section */
+.logo {
+    width: 100px;  /* Adjust size as needed */
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid cyan; /* Optional glowing border */
 }
 
 /* Rank Display */
-.rank-container {
-    text-align: center;
-    margin-top: 20px;
-}
-.rank-container img {
-    width: 100px;
-    height: auto;
+.rank {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Clips Container */
-.clips-container {
+.rank img {
+    width: 50px;
+    height: 50px;
+}
+
+.rank span {
+    color: #00ffcc;
+    font-size: 20px;
+    font-weight: bold;
+}
+p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    border: 2px solid cyan;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: cyan;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: cyan;
+    color: black;
+}
+
+/* Clips Section */
+#clips {
+    margin-top: 50px;
+}
+
+.clip-container {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
 }
-.clips-container video {
-    max-width: 90%;
-    height: auto;
+
+.clip video {
+    width: 300px;
+    border: 2px solid cyan;
+    box-shadow: 0 0 20px cyan;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px cyan; }
+    to { text-shadow: 0 0 20px cyan; }
+}
+/* Music Player */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
     border-radius: 10px;
 }
 
-/* Music Player */
-.music-player {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 20px;
-}
 .music-player button {
     background: none;
     border: none;
-    font-size: 20px;
-    cursor: pointer;
     color: white;
+    cursor: pointer;
+    font-size: 18px;
 }
+
 .music-player input {
     width: 100px;
 }
