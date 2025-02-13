@@ -21,13 +21,12 @@ body {
 
 /* About Section */
 .logo {
-    width: 100px;  /* Adjust size as needed */
+    width: 100px;
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid cyan; /* Optional glowing border */
+    border: 2px solid cyan;
 }
-
 
 h1 {
     font-size: 3rem;
@@ -45,6 +44,7 @@ p {
     text-decoration: none;
     color: cyan;
     transition: 0.3s;
+    font-size: 1.2rem;
 }
 
 .btn:hover {
@@ -67,6 +67,29 @@ p {
     width: 300px;
     border: 2px solid cyan;
     box-shadow: 0 0 20px cyan;
+}
+
+/* Music Section */
+#music {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.music-controls .btn {
+    font-size: 1.5rem;
+    padding: 15px 25px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.music-controls .btn:hover {
+    box-shadow: 0 0 15px cyan;
 }
 
 @keyframes glow {
