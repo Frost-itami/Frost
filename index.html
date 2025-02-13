@@ -3,55 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITAMI | Cyberpunk Portfolio</title>
+    <title>ITAMI</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="background-animation"></div>
 
-    <!-- Cursor -->
-    <div class="cursor"></div>
-
-    <!-- About Section -->
-    <section id="about">
-        <img src="assets/Miyamoto.jpg" alt="ITAMI Logo" class="logo">
-        <h1>ITAMI</h1>
-        <p>Cyberpunk dev, gamer, and creator. Welcome to my world.</p>
-        <div class="socials">
-            <a href="https://twitter.com/yourhandle" class="btn">Twitter</a>
-            <a href="https://github.com/yourgithub" class="btn">GitHub</a>
-            <a href="https://discord.gg/yourdiscord" class="btn">Discord</a>
+    <header>
+        <h1 class="title">
+            ITAMI 
+            <img src="rank.png" alt="Rank" class="rank-icon">
+        </h1>
+        <p class="subtitle">Cyberpunk dev, gamer, and creator. Welcome to my world.</p>
+        <div class="social-buttons">
+            <button onclick="window.open('https://twitter.com', '_blank')">Twitter</button>
+            <button onclick="window.open('https://github.com', '_blank')">GitHub</button>
+            <button onclick="window.open('https://discord.com', '_blank')">Discord</button>
         </div>
-    </section>
+    </header>
 
-    <!-- Clips Showcase -->
-    <section id="clips">
+    <section class="featured-clips">
         <h2>🔥 Featured Clips</h2>
-        <div class="clip-container">
-            <div class="clip">
-                <video src="assets/clip1.mp4" controls></video>
+        <div class="video-container">
+            <div class="video-box">
+                <video controls disablePictureInPicture controlsList="nodownload">
+                    <source src="assets/clip1.mp4" type="video/mp4">
+                </video>
+                <div class="watermark">ITAMI</div>
             </div>
-            <div class="clip">
-                <video src="assets/clip2.mp4" controls></video>
+            <div class="video-box">
+                <video controls disablePictureInPicture controlsList="nodownload">
+                    <source src="assets/clip2.mp4" type="video/mp4">
+                </video>
+                <div class="watermark">ITAMI</div>
             </div>
-            <div class="clip">
-                <video src="assets/clip3.mp4" controls></video>
+            <div class="video-box">
+                <video controls disablePictureInPicture controlsList="nodownload">
+                    <source src="assets/clip3.mp4" type="video/mp4">
+                </video>
+                <div class="watermark">ITAMI</div>
             </div>
         </div>
     </section>
 
-    <!-- Music Player -->
-    <section id="music">
-        <h2>🎶 Cyber Beats</h2>
-        <div class="music-controls">
-            <button id="play" class="btn">▶ Play</button>
-            <button id="pause" class="btn">⏸ Pause</button>
-            <button id="next" class="btn">⏭ Next</button>
+    <section class="music-player">
+        <h2>🎵 Cyber Beats</h2>
+        <audio id="audio-player" src="music.mp3"></audio>
+        <div class="player-buttons">
+            <button id="play">▶ Play</button>
+            <button id="pause">⏸ Pause</button>
+            <button id="next">⏭ Next</button>
         </div>
-        <audio id="audio" src="assets/music1.mp3"></audio>
     </section>
 
     <script src="script.js"></script>
     <script src="background.js"></script>
-
 </body>
 </html>

@@ -1,98 +1,107 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-body {
-    background: #0a0a0a;
-    color: cyan;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background-color: #0b0c10;
+    color: #66fcf1;
     text-align: center;
     overflow: hidden;
 }
 
-/* Cursor */
-.cursor {
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    background: cyan;
-    border-radius: 50%;
-    box-shadow: 0 0 10px cyan;
-    transition: transform 0.05s linear;
+.background-animation {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, rgba(0,255,255,0.1) 0%, rgba(0,0,0,1) 100%);
+    animation: moveBackground 10s linear infinite;
 }
 
-/* About Section */
-.logo {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid cyan;
+@keyframes moveBackground {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
 }
 
-h1 {
+.title {
     font-size: 3rem;
+    margin-top: 20px;
+    text-shadow: 0px 0px 15px cyan;
 }
 
-p {
+.rank-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.subtitle {
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
-.btn {
+.social-buttons button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    background: transparent;
     border: 2px solid cyan;
-    padding: 10px 20px;
-    margin: 10px;
-    text-decoration: none;
     color: cyan;
-    transition: 0.3s;
-    font-size: 1.2rem;
+    cursor: pointer;
 }
 
-.btn:hover {
-    background: cyan;
-    color: black;
+.featured-clips h2 {
+    margin-top: 30px;
+    font-size: 1.8rem;
+    text-shadow: 0px 0px 10px red;
 }
 
-/* Clips Section */
-#clips {
-    margin-top: 50px;
-}
-
-.clip-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.clip video {
-    width: 300px;
-    border: 2px solid cyan;
-    box-shadow: 0 0 20px cyan;
-}
-
-/* Music Section */
-#music {
-    margin-top: 50px;
-    text-align: center;
-}
-
-.music-controls {
+.video-container {
     display: flex;
     justify-content: center;
     gap: 15px;
 }
 
-.music-controls .btn {
-    font-size: 1.5rem;
-    padding: 15px 25px;
+.video-box {
+    position: relative;
+    width: 300px;
+    height: 180px;
+    overflow: hidden;
+    border: 3px solid cyan;
     border-radius: 10px;
+    box-shadow: 0px 0px 15px cyan;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.watermark {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.player-buttons button {
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-.music-controls .btn:hover {
-    box-shadow: 0 0 15px cyan;
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 5px cyan; }
-    to { text-shadow: 0 0 20px cyan; }
-}
+#play { background: green; color: white; }
+#pause { background: red; color: white; }
+#next { background: blue; color: white; }
