@@ -28,26 +28,11 @@ body {
     border: 2px solid cyan; /* Optional glowing border */
 }
 
-/* Rank Display */
-.rank {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+
+h1 {
+    font-size: 3rem;
 }
 
-.rank img {
-    width: 50px;
-    height: 50px;
-}
-
-.rank span {
-    color: #00ffcc;
-    font-size: 20px;
-    font-weight: bold;
-}
 p {
     font-size: 1.2rem;
     margin-bottom: 20px;
@@ -87,28 +72,4 @@ p {
 @keyframes glow {
     from { text-shadow: 0 0 5px cyan; }
     to { text-shadow: 0 0 20px cyan; }
-}
-/* Music Player */
-.music-player {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.music-player button {
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.music-player input {
-    width: 100px;
 }
