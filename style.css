@@ -1,74 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
+/* Remove default cursor and use a custom one */
 body {
-    background: #0a0a0a;
-    color: cyan;
-    font-family: 'Orbitron', sans-serif;
-    text-align: center;
-    overflow: hidden;
+    cursor: none;
 }
 
-/* Cursor */
-.cursor {
-    width: 10px;
-    height: 10px;
+/* Custom cursor */
+.custom-cursor {
     position: absolute;
-    background: cyan;
-    border-radius: 50%;
-    box-shadow: 0 0 10px cyan;
-    transition: transform 0.05s linear;
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+    background: url('cursor.png') no-repeat center;
+    background-size: contain;
+    z-index: 9999;
 }
 
-/* About Section */
-.logo {
-    width: 100px;  /* Adjust size as needed */
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid cyan; /* Optional glowing border */
+/* Rank Display */
+.rank {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-h1 {
-    font-size: 3rem;
+.rank img {
+    width: 50px;
+    height: 50px;
 }
 
-p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+.rank span {
+    color: #00ffcc;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.btn {
-    border: 2px solid cyan;
-    padding: 10px 20px;
-    margin: 10px;
-    text-decoration: none;
-    color: cyan;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: cyan;
-    color: black;
-}
-
-/* Clips Section */
-#clips {
-    margin-top: 50px;
-}
-
-.clip-container {
+/* Video Container - Responsive */
+.video-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
 }
 
-.clip video {
-    width: 300px;
-    border: 2px solid cyan;
-    box-shadow: 0 0 20px cyan;
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 5px cyan; }
-    to { text-shadow: 0 0 20px cyan; }
+/* Music Player */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.music-player button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.music-player input {
+    width: 100px;
 }

@@ -3,45 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITAMI | Cyberpunk Portfolio</title>
+    <title>Frost-Itami</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- Cursor -->
-    <div class="cursor"></div>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
 
-    <!-- About Section -->
-    <section id="about">
-        <img src="Miyamoto.jpg" alt="ITAMI Logo" class="logo">
-        <h1>ITAMI</h1>
-        <p>Cyberpunk dev, gamer, and creator. Welcome to my world.</p>
-        <div class="socials">
-            <a href="https://x.com/Frost_itami" class="btn">Twitter</a>
-            <a href="https://github.com/Frost-itami" class="btn">GitHub</a>
-            <a href="https://discord.gg/cuwRDUVJ" class="btn">Discord</a>
-        </div>
-    </section>
+    <!-- Rank Display -->
+    <div class="rank">
+        <img src="ascendant2.png" alt="Ascendant 2">
+        <span>Ascendant 2</span>
+    </div>
 
-    <!-- Clips Showcase -->
-    <section id="clips">
-        <h2>🔥 Featured Clips</h2>
-        <div class="clip-container">
-            <div class="clip">
-                <video src="clip1.mp4" controls></video>
-            </div>
-            <div class="clip">
-                <video src="clip2.mp4" controls></video>
-            </div>
-            <div class="clip">
-                <video src="clip3.mp4" controls></video>
-            </div>
-        </div>
-    </section>
+    <!-- Video Section -->
+    <div class="video-container">
+        <video controls id="video-player">
+            <source src="clip1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button onclick="prevSong()">⏮️</button>
+        <button onclick="togglePlay()">▶️</button>
+        <button onclick="nextSong()">⏭️</button>
+        <input type="range" id="volume" min="0" max="1" step="0.1" onchange="changeVolume(this.value)">
+    </div>
 
     <script src="script.js"></script>
-    <script src="background.js"></script>
-
 </body>
 </html>
