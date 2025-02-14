@@ -3,61 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITAMI</title>
+    <title>ITAMI | Cyberpunk Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="background-animation"></div>
+<body class="dark-theme">
 
-    <header>
-        <h1 class="title">
-            ITAMI 
-            <img src="rank.png" alt="Rank" class="rank-icon">
-        </h1>
-        <p class="subtitle">Cyberpunk dev, gamer, and creator. Welcome to my world.</p>
-        <div class="social-buttons">
-            <button onclick="window.open('https://twitter.com', '_blank')">Twitter</button>
-            <button onclick="window.open('https://github.com', '_blank')">GitHub</button>
-            <button onclick="window.open('https://discord.com', '_blank')">Discord</button>
-        </div>
-    </header>
+    <!-- Background Effects -->
+    <canvas id="starCanvas"></canvas>
+    <div class="cyber-grid"></div>
 
-    <section class="featured-clips">
-        <h2>🔥 Featured Clips</h2>
-        <div class="video-container" id="video-container">
-            <div class="video-box">
-                <video controls disablePictureInPicture controlsList="nodownload">
-                    <source src="assets/clip1.mp4" type="video/mp4">
-                </video>
-                <div class="watermark">ITAMI</div>
-            </div>
-            <div class="video-box">
-                <video controls disablePictureInPicture controlsList="nodownload">
-                    <source src="assets/clip2.mp4" type="video/mp4">
-                </video>
-                <div class="watermark">ITAMI</div>
-            </div>
-            <div class="video-box">
-                <video controls disablePictureInPicture controlsList="nodownload">
-                    <source src="assets/clip3.mp4" type="video/mp4">
-                </video>
-                <div class="watermark">ITAMI</div>
-            </div>
-        </div>
-        <button id="see-more">🔽 See More</button>
-    </section>
+    <div class="container">
+        <header>
+            <h1 class="neon-text">ITAMI</h1>
+        </header>
 
-    <section class="music-player">
-        <h2>🎵 Cyber Beats</h2>
-        <audio id="audio-player" src="music.mp3"></audio>
-        <div class="player-buttons">
-            <button id="play">▶ Play</button>
-            <button id="pause">⏸ Pause</button>
-            <button id="next">⏭ Next</button>
-        </div>
-    </section>
+        <section class="profile">
+            <div class="profile-pic-container">
+                <img src="assets/Miyamoto.jpg" alt="ITAMI" class="profile-pic">
+            </div>
+            <div class="rank">
+                <img src="assets/ascendant-2.png" alt="Ascendant 2" class="rank-pic">
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="neon-text">About Me</h2>
+            <p>Cyberpunk dev, gamer, and creator. Welcome to my world.</p>
+            <div class="socials">
+                <a href="https://twitter.com/yourhandle" class="cyber-button">Twitter</a>
+                <a href="https://github.com/yourgithub" class="cyber-button">GitHub</a>
+                <a href="https://discord.gg/yourdiscord" class="cyber-button">Discord</a>
+            </div>
+        </section>
+
+        <section class="featured-clips">
+            <h2 class="neon-text">🔥 Featured Clips</h2>
+            <div class="video-grid">
+                <div class="video-container">
+                    <video src="assets/clip1.mp4" controls></video>
+                </div>
+                <div class="video-container">
+                    <video src="assets/clip2.mp4" controls></video>
+                </div>
+                <div class="video-container">
+                    <video src="assets/clip3.mp4" controls></video>
+                </div>
+            </div>
+        </section>
+
+        <section class="music-player">
+            <h3 class="neon-text">🎶 Cyber Beats</h3>
+            <div class="player-controls">
+                <button id="play-pause" class="cyber-button">Play</button>
+                <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
+            </div>
+        </section>
+
+        <footer>
+            <button id="theme-toggle" class="cyber-button">Toggle Theme</button>
+        </footer>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
 
     <script src="script.js"></script>
-    <script src="background.js"></script>
 </body>
 </html>

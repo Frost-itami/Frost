@@ -1,128 +1,87 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Orbitron', sans-serif;
+:root {
+    --neon-blue: #00ffff;
+    --dark-bg: #0a0a0a;
+    --light-bg: #f0f0f0;
+    --dark-text: #ffffff;
+    --light-text: #000000;
 }
 
 body {
-    background-color: #0a0f1e;
-    color: #66fcf1;
+    font-family: 'Orbitron', sans-serif;
+    background: var(--dark-bg);
+    color: var(--dark-text);
     text-align: center;
-    overflow-x: hidden;
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.background-animation {
+body.light-theme {
+    background: var(--light-bg);
+    color: var(--light-text);
+}
+
+/* Cursor */
+.cursor {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: cyan;
+    border-radius: 50%;
+    box-shadow: 0 0 10px cyan;
+    transition: transform 0.05s linear;
+}
+
+/* Neon Text */
+.neon-text {
+    font-size: 4rem;
+    text-transform: uppercase;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+    from { text-shadow: 0 0 10px cyan; }
+    to { text-shadow: 0 0 20px cyan; }
+}
+
+/* Cyber Grid */
+.cyber-grid {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(45deg, rgba(0,255,255,0.1), rgba(0,0,0,1));
-    animation: moveBackground 5s linear infinite alternate;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: -1;
 }
 
-@keyframes moveBackground {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 50% 50%; }
-}
-
-.title {
-    font-size: 3rem;
-    margin-top: 20px;
-    text-shadow: 0px 0px 15px cyan;
-}
-
-.rank-icon {
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-    vertical-align: middle;
-}
-
-.subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.social-buttons button {
-    margin: 5px;
-    padding: 10px 15px;
-    font-size: 1rem;
-    background: transparent;
+/* Social Buttons */
+.cyber-button {
     border: 2px solid cyan;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
     color: cyan;
-    cursor: pointer;
     transition: 0.3s;
 }
 
-.social-buttons button:hover {
+.cyber-button:hover {
     background: cyan;
     color: black;
 }
 
-.featured-clips h2 {
-    margin-top: 30px;
-    font-size: 1.8rem;
-    text-shadow: 0px 0px 10px red;
-}
-
-.video-container {
+/* Featured Clips */
+.video-grid {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px;
 }
 
-.video-box {
-    position: relative;
+.video-container video {
     width: 300px;
-    height: 180px;
-    overflow: hidden;
-    border: 3px solid cyan;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px cyan;
-}
-
-video {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-}
-
-.watermark {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    font-size: 12px;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 2px 5px;
-    border-radius: 5px;
-}
-
-.player-buttons button {
-    margin: 10px;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#play { background: green; color: white; }
-#pause { background: red; color: white; }
-#next { background: blue; color: white; }
-
-#see-more {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    background: cyan;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#see-more:hover {
-    background: #00aaff;
+    border: 2px solid cyan;
+    box-shadow: 0 0 20px cyan;
 }
