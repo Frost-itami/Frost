@@ -8,23 +8,23 @@
 }
 
 body {
-    background-color: #0b0c10;
+    background-color: #0a0f1e;
     color: #66fcf1;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .background-animation {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: radial-gradient(circle, rgba(0,255,255,0.1) 0%, rgba(0,0,0,1) 100%);
-    animation: moveBackground 10s linear infinite;
+    background: linear-gradient(45deg, rgba(0,255,255,0.1), rgba(0,0,0,1));
+    animation: moveBackground 5s linear infinite alternate;
 }
 
 @keyframes moveBackground {
     0% { background-position: 0% 0%; }
-    100% { background-position: 100% 100%; }
+    100% { background-position: 50% 50%; }
 }
 
 .title {
@@ -53,6 +53,12 @@ body {
     border: 2px solid cyan;
     color: cyan;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-buttons button:hover {
+    background: cyan;
+    color: black;
 }
 
 .featured-clips h2 {
@@ -64,6 +70,7 @@ body {
 .video-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 15px;
 }
 
@@ -105,3 +112,17 @@ video {
 #play { background: green; color: white; }
 #pause { background: red; color: white; }
 #next { background: blue; color: white; }
+
+#see-more {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: cyan;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#see-more:hover {
+    background: #00aaff;
+}
