@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+#starCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2; /* Keep it behind everything */
+}
+.container {
+    position: relative;
+    z-index: 1;
+}
 
 :root {
     --neon-blue: #00ffff;
@@ -85,3 +95,4 @@ body.light-theme {
     border: 2px solid cyan;
     box-shadow: 0 0 20px cyan;
 }
+
